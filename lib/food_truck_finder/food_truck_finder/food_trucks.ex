@@ -1,4 +1,4 @@
-defmodule FoodTruckFinder.FoodTruckFinder.FoodTrucks do
+defmodule FoodTruckFinder.FoodTruckFinder.FoodTruck do
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -31,11 +31,14 @@ defmodule FoodTruckFinder.FoodTruckFinder.FoodTrucks do
     timestamps()
   end
 
+  # If there are more than 3 required fields I usually make this a module attribute for readability.
   @required [:location_id, :applicant, :facility_type, :cnn]
 
-  @doc false
-  def changeset(food_trucks, attrs) do
-    food_trucks
+  @doc """
+  Casting and validation of the data for the food_trucks table.
+  """
+  def changeset(food_truck, attrs) do
+    food_truck
     |> cast(attrs, [:location_id, :applicant])
     |> validate_required(@required)
     |> validate_length(:blocklot, max: 20)
