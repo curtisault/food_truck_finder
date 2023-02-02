@@ -1,4 +1,6 @@
-defmodule FoodTruckFinder.FoodTruckFinder.FoodTruck do
+defmodule FoodTruckFinder.FoodTruck do
+  @moduledoc """
+  """
   use Ecto.Schema
   import Ecto.Changeset
 
@@ -21,7 +23,7 @@ defmodule FoodTruckFinder.FoodTruckFinder.FoodTruck do
     field :longitude, :float
     field :schedule, :string
     field :days_hours, :string
-    field :noi_sent, :string
+    field :noi_sent, :naive_datetime
     field :approved, :naive_datetime
     field :received, :string
     field :prior_permit, :integer
