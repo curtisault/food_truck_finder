@@ -85,6 +85,12 @@ mix deps.get
 mix ecto.create
 ```
 
+If successful, you should see something similar to:
+
+```
+The database for FoodTruckFinder.Repo has been created
+```
+
 # Phoenix Stuff
 
 To start your Phoenix server:
