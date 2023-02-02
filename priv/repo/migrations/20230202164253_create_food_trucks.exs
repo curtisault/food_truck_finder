@@ -1,4 +1,4 @@
-defmodule FoodTruckFinder.Repo.Migrations.AddFoodTrucksTable do
+defmodule FoodTruckFinder.Repo.Migrations.CreateFoodTrucks do
   @moduledoc """
   API spec can be found here: 
     https://www.opendatanetwork.com/dataset/data.sfgov.org/rqzj-sfat
