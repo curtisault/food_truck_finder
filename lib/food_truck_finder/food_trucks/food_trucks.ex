@@ -4,7 +4,7 @@ defmodule FoodTruckFinder.FoodTrucks do
   """
 
   import Ecto.Query
-  
+
   alias FoodTruckFinder.Repo
   alias FoodTruckFinder.FoodTruck
 

@@ -28,6 +28,7 @@ defmodule FoodTruckFinder.Repo.Migrations.PopulateFoodTrucksTable do
         data
         |> FoodTruck.rename_keys()
         |> (&Repo.insert_all(FoodTruck, &1)).()
+
       err ->
         err
     end
