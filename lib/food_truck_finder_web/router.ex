@@ -18,6 +18,10 @@ defmodule FoodTruckFinderWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/foodtrucks", PageController, :food_trucks
+    get "/foodtrucks/:location_id", PageController, :food_truck_by_location_id
+
+    get "/phoenix", PageController, :phoenix
   end
 
   # Other scopes may use custom stacks.

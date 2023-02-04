@@ -1,0 +1,33 @@
+<div class="pt-4 pl-6">
+  <.back navigate={~p"/"}>Back to home</.back>
+
+  <h1 class="pt-6">
+    <Heroicons.truck solid class="h-5 w-5 stroke-current" /> <b>Pick a Truck!</b>
+  </h1>
+
+  <h3>Select a truck by clicking on the name of one that is of interest.</h3>
+
+  <div class="pt-6">
+    <table class="table-fixed">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Items</th>
+        </tr>
+      </thead>
+      <tr :for={truck <- @trucks}>
+        <div>
+          <td class="w-1/3">
+            <.link href={~p"/foodtrucks/#{truck.location_id}"}>
+              <%= truck.applicant %>
+            </.link>
+          </td>
+        </div>
+        <div>
+          <td><%= truck.food_items %></td>
+        </div>
+      </tr>
+    </table>
+  </div>
+</div>
+
