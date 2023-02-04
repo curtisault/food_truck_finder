@@ -76,6 +76,12 @@ Verify user was created:
 echo "\du" | psql postgres
 ```
 
+If you want to alias easy access to the local db:
+
+```
+psql postgresql://estee:LAUDER@localhost/food_truck_finder_dev
+```
+
 ### Install dependencies
 
 For this step, user creation
@@ -83,6 +89,12 @@ For this step, user creation
 ```
 mix deps.get
 mix ecto.create
+```
+
+If successful, you should see something similar to:
+
+```
+The database for FoodTruckFinder.Repo has been created
 ```
 
 # Phoenix Stuff
