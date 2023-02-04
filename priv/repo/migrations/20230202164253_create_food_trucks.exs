@@ -16,7 +16,6 @@ defmodule FoodTruckFinder.Repo.Migrations.CreateFoodTrucks do
 
   use Ecto.Migration
 
-
   @table_name "food_trucks"
 
   def up do
@@ -31,7 +30,7 @@ defmodule FoodTruckFinder.Repo.Migrations.CreateFoodTrucks do
     create table(table_name) do
       add :location_id, :integer, null: false
       add :applicant, :string, null: false
-      add :facility_type, :string, null: false
+      add :facility_type, :string
       add :cnn, :integer, null: false
       add :location_description, :string
       add :address, :string
@@ -40,21 +39,21 @@ defmodule FoodTruckFinder.Repo.Migrations.CreateFoodTrucks do
       add :lot, :string, size: 10
       add :permit, :string, size: 30
       add :status, :string, size: 80
-      add :food_items, :string
+      add :food_items, :text
       add :x, :float
       add :y, :float
       add :latitude, :float
       add :longitude, :float
-      add :schedule, :string
+      add :schedule, :text
       add :days_hours, :string
-      add :noi_sent, :string
+      add :noi_sent, :naive_datetime
       add :approved, :naive_datetime
       add :received, :string
       add :prior_permit, :integer
       add :expiration_date, :naive_datetime
       add :location, :string
 
-      timestamps()
+      timestamps(default: fragment("NOW()"))
     end
   end
 end
