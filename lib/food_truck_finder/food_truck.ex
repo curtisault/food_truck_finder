@@ -1,5 +1,8 @@
 defmodule FoodTruckFinder.FoodTruck do
   @moduledoc """
+  This module is just to model the data in the db and validate any changesets.
+
+  If you are looking for business logic, go look at FoodTruckFinder.FoodTrucks module.
   """
   use Ecto.Schema
   import Ecto.Changeset
@@ -87,34 +90,85 @@ defmodule FoodTruckFinder.FoodTruck do
   """
   def rename_keys(food_trucks) do
     food_trucks
-    |> Enum.map(&Map.new(&1, fn
-      {"address", value} -> {:address, value}
-      {"applicant", value} -> {:applicant, value}
-      {"approved", value} -> {:approved, Helpers.parse_naive_time_ecto(value)}
-      {"block", value} -> {:block, value}
-      {"blocklot", value} -> {:blocklot, value}
-      {"cnn", value} -> {:cnn, Helpers.parse_int(value)}
-      {"dayshours", value} -> {:days_hours, value}
-      {"expirationdate", value} -> {:expiration_date, Helpers.parse_naive_time_ecto(value)}
-      {"facilitytype", value} -> {:facility_type, value}
-      {"fooditems", value} -> {:food_items, value}
-      {"latitude", value} -> {:latitude, Helpers.parse_float(value)}
-      {"location", %{"latitude" => latitude, "longitude" => longitude}} -> {:location, ~s(#{latitude}, #{longitude})}
-      {"locationdescription", value} -> {:location_description, value}
-      {"objectid", value} -> {:location_id, Helpers.parse_int(value)}
-      {"longitude", value} -> {:longitude, Helpers.parse_float(value)}
-      {"lot", value} -> {:lot, value}
-      {"noisent", value} -> {:noi_sent, value}
-      {"permit", value} -> {:permit, value}
-      {"priorpermit", value} -> {:prior_permit, Helpers.parse_int(value)}
-      {"received", value} -> {:received, value}
-      {"schedule", value} -> {:schedule, value}
-      {"status", value} -> {:status, value}
-      {"x", value} -> {:x, Helpers.parse_float(value)}
-      {"y", value} -> {:y, Helpers.parse_float(value)}
-      {key, value} -> {key, value}
-    end))
-    |> Enum.map(fn food_truck -> 
+    |> Enum.map(
+      &Map.new(&1, fn
+        {"address", value} ->
+          {:address, value}
+
+        {"applicant", value} ->
+          {:applicant, value}
+
+        {"approved", value} ->
+          {:approved, Helpers.parse_naive_time_ecto(value)}
+
+        {"block", value} ->
+          {:block, value}
+
+        {"blocklot", value} ->
+          {:blocklot, value}
+
+        {"cnn", value} ->
+          {:cnn, Helpers.parse_int(value)}
+
+        {"dayshours", value} ->
+          {:days_hours, value}
+
+        {"expirationdate", value} ->
+          {:expiration_date, Helpers.parse_naive_time_ecto(value)}
+
+        {"facilitytype", value} ->
+          {:facility_type, value}
+
+        {"fooditems", value} ->
+          {:food_items, value}
+
+        {"latitude", value} ->
+          {:latitude, Helpers.parse_float(value)}
+
+        {"location", %{"latitude" => latitude, "longitude" => longitude}} ->
+          {:location, ~s(#{latitude}, #{longitude})}
+
+        {"locationdescription", value} ->
+          {:location_description, value}
+
+        {"objectid", value} ->
+          {:location_id, Helpers.parse_int(value)}
+
+        {"longitude", value} ->
+          {:longitude, Helpers.parse_float(value)}
+
+        {"lot", value} ->
+          {:lot, value}
+
+        {"noisent", value} ->
+          {:noi_sent, value}
+
+        {"permit", value} ->
+          {:permit, value}
+
+        {"priorpermit", value} ->
+          {:prior_permit, Helpers.parse_int(value)}
+
+        {"received", value} ->
+          {:received, value}
+
+        {"schedule", value} ->
+          {:schedule, value}
+
+        {"status", value} ->
+          {:status, value}
+
+        {"x", value} ->
+          {:x, Helpers.parse_float(value)}
+
+        {"y", value} ->
+          {:y, Helpers.parse_float(value)}
+
+        {key, value} ->
+          {key, value}
+      end)
+    )
+    |> Enum.map(fn food_truck ->
       drop_keys = Map.keys(food_truck) -- __MODULE__.__schema__(:fields)
       Map.drop(food_truck, drop_keys)
     end)

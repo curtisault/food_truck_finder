@@ -8,7 +8,7 @@
 /deps/
 
 # Where 3rd-party dependencies like ExDoc output generated docs.
-/doc/
+# /doc/
 
 # Ignore .fetch files in case you like to edit your project deps locally.
 /.fetch
@@ -31,4 +31,7 @@ food_truck_finder-*.tar
 # In case you use Node.js/npm, you want to ignore these.
 npm-debug.log
 /assets/node_modules/
+
+# Macos Store
+*.DS_Store
 

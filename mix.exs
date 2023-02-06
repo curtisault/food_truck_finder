@@ -9,7 +9,17 @@ defmodule FoodTruckFinder.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps()
+      deps: deps(),
+
+      # Docs
+      name: "FoodTruckFinder",
+      source_url: "https://github.com/curtisault/food_truck_finder/",
+      homepage_url: "http://NOT_YET_DEPLOYED",
+      docs: [
+        main: "FoodTruckFinder",
+        logo: "priv/static/food-truck-logo-design.png",
+        extras: ["README.md"]
+      ]
     ]
   end
 
@@ -35,6 +45,7 @@ defmodule FoodTruckFinder.MixProject do
       {:phoenix, "~> 1.7.0-rc.2", override: true},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
+      {:ex_doc, "~> 0.27", only: :dev, runtime: false},
       {:postgrex, ">= 0.0.0"},
       {:phoenix_html, "~> 3.0"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
