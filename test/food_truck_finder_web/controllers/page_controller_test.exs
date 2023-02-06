@@ -34,6 +34,9 @@ defmodule FoodTruckFinderWeb.PageControllerTest do
     test "foodtrucks_by_location_id", %{conn: conn} do
       conn = get(conn, ~p"/foodtrucks/1652582")
       assert html_response(conn, 200) =~ "Off the Grid Services, LLC"
+      assert html_response(conn, 200) =~ "Items:"
+      assert html_response(conn, 200) =~ "Address:"
+      assert html_response(conn, 200) =~ "Location:"
     end
 
     test "phoenix", %{conn: conn} do
