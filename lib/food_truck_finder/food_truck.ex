@@ -1,5 +1,8 @@
 defmodule FoodTruckFinder.FoodTruck do
   @moduledoc """
+  This module is just to model the data in the db and validate any changesets.
+
+  If you are looking for business logic, go look at FoodTruckFinder.FoodTrucks module.
   """
   use Ecto.Schema
   import Ecto.Changeset
