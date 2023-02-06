@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.1">
+    <meta name="project" content="FoodTruckFinder v0.1.0">
+
+    <title>FoodTruckFinder.FoodTruck — FoodTruckFinder v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-V2ETBPMB.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-IV5W3OL2.js"></script>
+    <script src="dist/sidebar_items-C378627D.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-XN2TSG4M.js"></script>
+
+
+  </head>
+  <body data-type="modules" class="page-module">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://NOT_YET_DEPLOYED">
+        <img src="assets/logo.png" alt="FoodTruckFinder" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://NOT_YET_DEPLOYED" class="sidebar-projectName" translate="no">
+FoodTruckFinder
+      </a>
+      <strong class="sidebar-projectVersion" translate="no">
+        v0.1.0
+      </strong>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+        <li><a id="modules-list-link" href="#full-list">Modules</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+    <a href="https://github.com/curtisault/food_truck_finder/blob/main/lib/food_truck_finder/food_truck.ex#L1" title="View Source" class="icon-action" rel="help">
+      <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+      <span class="sr-only">View Source</span>
+    </a>
+
+  <span translate="no">FoodTruckFinder.FoodTruck</span> 
+  <small class="app-vsn" translate="no">(FoodTruckFinder v0.1.0)</small>
+
+</h1>
+
+
+  <section id="moduledoc">
+<p>This module is just to model the data in the db and validate any changesets.</p><p>If you are looking for business logic, go look at FoodTruckFinder.FoodTrucks module.</p>
+  </section>
+
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+      Summary
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#changeset/2" translate="no">changeset(food_truck, attrs)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Casting and validation of the data for the food_trucks table.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#rename_keys/1" translate="no">rename_keys(food_trucks)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>We need to map json keys to schema keys.
+This function takes in the result of Jason.decode and remaps it using the keys in the food_trucks schema
+While we're at it, we will drop all keys we don't care about.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+        <span class="sr-only">Link to this section</span>
+      </a>
+Functions
+    </h1>
+    <div class="functions-list">
+<section class="detail" id="changeset/2">
+
+  <div class="detail-header">
+    <a href="#changeset/2" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">changeset(food_truck, attrs)</h1>
+
+      <a href="https://github.com/curtisault/food_truck_finder/blob/main/lib/food_truck_finder/food_truck.ex#L47" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>Casting and validation of the data for the food_trucks table.</p>
+  </section>
+</section>
+<section class="detail" id="rename_keys/1">
+
+  <div class="detail-header">
+    <a href="#rename_keys/1" class="detail-link" title="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature" translate="no">rename_keys(food_trucks)</h1>
+
+      <a href="https://github.com/curtisault/food_truck_finder/blob/main/lib/food_truck_finder/food_truck.ex#L91" class="icon-action" rel="help" title="View Source">
+       <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+       <span class="sr-only">View Source</span>
+     </a>
+
+
+  </div>
+
+  <section class="docstring">
+
+<p>We need to map json keys to schema keys.
+This function takes in the result of Jason.decode and remaps it using the keys in the food_trucks schema
+While we're at it, we will drop all keys we don't care about.</p><p>Sample Dataset:
+%{
+  &quot;address&quot; =&gt; &quot;5 THE EMBARCADERO&quot;,
+  &quot;applicant&quot; =&gt; &quot;Ziaurehman Amini&quot;,
+  &quot;block&quot; =&gt; &quot;0234&quot;,
+  &quot;blocklot&quot; =&gt; &quot;0234017&quot;,
+  &quot;cnn&quot; =&gt; &quot;30727000&quot;,
+  &quot;expirationdate&quot; =&gt; &quot;2016-03-15T00:00:00.000&quot;,
+  &quot;facilitytype&quot; =&gt; &quot;Push Cart&quot;,
+  &quot;latitude&quot; =&gt; &quot;37.794331003246846&quot;,
+  &quot;location&quot; =&gt; %{</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;human_address&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;{&quot;</span><span class="n">address</span><span class="s">&quot;: &quot;</span><span class="s">&quot;, &quot;</span><span class="n">city</span><span class="s">&quot;: &quot;</span><span class="s">&quot;, &quot;</span><span class="n">state</span><span class="s">&quot;: &quot;</span><span class="s">&quot;, &quot;</span><span class="n">zip</span><span class="s">&quot;: &quot;</span><span class="s">&quot;}&quot;</span><span class="p">,</span><span class="w">
+</span><span class="s">&quot;latitude&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;37.794331003246846&quot;</span><span class="p">,</span><span class="w">
+</span><span class="s">&quot;longitude&quot;</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="s">&quot;-122.39581105302317&quot;</span></code></pre><p>  },
+  &quot;locationdescription&quot; =&gt; &quot;MARKET ST: DRUMM ST intersection&quot;,
+  &quot;longitude&quot; =&gt; &quot;-122.39581105302317&quot;,
+  &quot;lot&quot; =&gt; &quot;017&quot;,
+  &quot;objectid&quot; =&gt; &quot;735318&quot;,
+  &quot;permit&quot; =&gt; &quot;15MFF-0159&quot;,
+  &quot;priorpermit&quot; =&gt; &quot;0&quot;,
+  &quot;received&quot; =&gt; &quot;20151231&quot;,
+  &quot;schedule&quot; =&gt; &quot;<a href="http://bsm.sfdpw.org/PermitsTracker/reports/report.aspx?title=schedule&report=rptSchedule&params=permit=15MFF-0159&ExportPDF=1&Filename=15MFF-0159_schedule.pdf%22">http://bsm.sfdpw.org/PermitsTracker/reports/report.aspx?title=schedule&amp;report=rptSchedule&amp;params=permit=15MFF-0159&amp;ExportPDF=1&amp;Filename=15MFF-0159_schedule.pdf&quot;</a>,
+  &quot;status&quot; =&gt; &quot;REQUESTED&quot;,
+  &quot;x&quot; =&gt; &quot;6013916.72&quot;,
+  &quot;y&quot; =&gt; &quot;2117244.027&quot;
+}</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="FoodTruckFinder.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
