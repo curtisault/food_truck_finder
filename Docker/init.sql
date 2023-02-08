@@ -1,0 +1,5 @@
+-- CREATE USER estee;
+CREATE ROLE estee WITH LOGIN PASSWORD 'LAUD3R' CREATEDB CREATEROLE;
+-- CREATE DATABASE food_truck_finder_dev;
+-- CREATE DATABASE food_truck_finder_test;
+

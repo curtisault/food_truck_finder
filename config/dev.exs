@@ -1,14 +1,29 @@
 import Config
 
+is_container = System.get_env("IS_CONTAINER")
+
 # Configure your database
-config :food_truck_finder, FoodTruckFinder.Repo,
-  username: "estee",
-  password: "LAUD3R",
-  hostname: "localhost",
-  database: "food_truck_finder_dev",
-  stacktrace: true,
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
+if is_container do
+  config :food_truck_finder, FoodTruckFinder.Repo,
+    username: "estee",
+    password: "LAUD3R",
+    hostname: "host.docker.internal",
+    database: "food_truck_finder_dev",
+    port: 5433,
+    stacktrace: true,
+    show_sensitive_data_on_connection_error: true,
+    pool_size: 10
+else
+  config :food_truck_finder, FoodTruckFinder.Repo,
+    username: "estee",
+    password: "LAUD3R",
+    hostname: "localhost",
+    database: "food_truck_finder_dev",
+    port: 5432,
+    stacktrace: true,
+    show_sensitive_data_on_connection_error: true,
+    pool_size: 10
+end
 
 # For development, we disable any cache and enable
 # debugging and code reloading.
@@ -16,19 +31,36 @@ config :food_truck_finder, FoodTruckFinder.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with esbuild to bundle .js and .css sources.
-config :food_truck_finder, FoodTruckFinderWeb.Endpoint,
-  # Binding to loopback ipv4 address prevents access from other machines.
-  # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
-  http: [ip: {127, 0, 0, 1}, port: 4000],
-  check_origin: false,
-  code_reloader: true,
-  debug_errors: true,
-  secret_key_base: "8DsJsobHfvORAak+pGVrkrns3FWhVl4SCOswoGVa02LbSk4/K4hqtIrZyy3mGlkm",
-  watchers: [
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
-    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
-  ]
 
+secret_key_base = "8DsJsobHfvORAak+pGVrkrns3FWhVl4SCOswoGVa02LbSk4/K4hqtIrZyy3mGlkm"
+
+if is_container do
+  config :food_truck_finder, FoodTruckFinderWeb.Endpoint,
+    # Binding to loopback ipv4 address prevents access from other machines.
+    # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
+    http: [ip: {0, 0, 0, 0}, port: 4000],
+    check_origin: false,
+    code_reloader: true,
+    debug_errors: true,
+    secret_key_base: secret_key_base,
+    watchers: [
+      esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+      tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    ]
+else
+  config :food_truck_finder, FoodTruckFinderWeb.Endpoint,
+    # Binding to loopback ipv4 address prevents access from other machines.
+    # Change to `ip: {0, 0, 0, 0}` to allow access from other machines.
+    http: [ip: {127, 0, 0, 1}, port: 4000],
+    check_origin: false,
+    code_reloader: true,
+    debug_errors: true,
+    secret_key_base: secret_key_base,
+    watchers: [
+      esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+      tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
+    ]
+end
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
