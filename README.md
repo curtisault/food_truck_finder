@@ -4,7 +4,43 @@
 
 Discover new food!
 
+Run the project to see which non-expired licensed food trucks exist near you! Simple click "Show Trucks", select a truck, and view on the map it's location!
+
+# Docs
+
+Run the following command to view docs for the project in your browser:
+
+```
+open doc/index.html
+```
+
 # Setup
+
+## Docker
+
+Install Docker and Docker Compose. Once those tools are installed, run the following to: 
+
+1. Build the container
+2. Set up and seed the db
+3. Run the containers
+
+```
+docker compose build
+docker compose run web mix ecto.create
+docker compose up
+```
+
+You can check to ensure the database and the server are running:
+
+```
+docker ps
+```
+
+Once the servers are running, you can go to your browser and navigate to `http://localhost:4000`.
+
+Once there, you will be presented with a button that says "Run migrations for repo". Click on that button.
+
+Once the migrations are complete, you should be good to go.
 
 ## Local
 
@@ -95,6 +131,20 @@ If successful, you should see something similar to:
 
 ```
 The database for FoodTruckFinder.Repo has been created
+```
+
+The final step for local database setup is to run in the migrations.
+
+See migrations with the following command:
+
+```
+mix ecto.migrations
+```
+
+Rum migrations with the following command:
+
+```
+mix ecto.migrate
 ```
 
 # Phoenix Stuff

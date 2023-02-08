@@ -35,3 +35,5 @@ npm-debug.log
 # Macos Store
 *.DS_Store
 
+# Docker env
+*.env
