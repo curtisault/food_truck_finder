@@ -115,7 +115,7 @@ echo "\du" | psql postgres
 If you want to alias easy access to the local db (username/password can be found in config):
 
 ```
-psql postgresql://<username>:password@localhost/food_truck_finder_dev
+psql postgresql://<username>:<password>@localhost/food_truck_finder_dev
 ```
 
 ### Install dependencies
